@@ -17,7 +17,9 @@ class RangeCollection {
      * @param {Array<number>} range - Array of two integers that specify beginning and end of range.
      */
     add(range) {
-        //TODO check that range has 2 items and the first < second
+        if (range.length !== 2 || range[0] > range[1]){
+            throw "Invalid range";
+        }
         let insertionIndex = 0;
         let numberOfRemovedItems = 0;
         let newPair = range;
@@ -71,7 +73,9 @@ class RangeCollection {
      * @param {Array<number>} range - Array of two integers that specify beginning and end of range.
      */
     remove(range) {
-        //TODO check that range has 2 items and the first < second
+        if (range.length !== 2 || range[0] > range[1]){
+            throw "Invalid range";
+        }
         const rangeMin = range[0];
         const rangeMax = range[1];
             
@@ -198,3 +202,17 @@ class RangeCollection {
   //console.log(rc.stringify() === "")
   rc.print();
   ////////////////////////////////////////End  
+
+//   try {
+//     rc.remove([2, 1]);
+//     console.log(false);
+//    } catch (err) {
+//       console.log(true);
+//   }
+
+//   try {
+//     rc.add([2]);
+//     console.log(false);
+//    } catch (err) {
+//       console.log(true);
+//   }
